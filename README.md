@@ -1,4 +1,4 @@
-# Well-Being in San Francisco
+# An Analysis of Well-Being in San Francisco
 
 This is a one-day project completed as part of the Bayes Impact hackathon.
 
@@ -31,8 +31,20 @@ neighborhoods, and does so in 2 ways:
 - By providing meaningful metrics for each neighborhood, related to crime,
   transportation, access to restaurants, together with tools to visuzalize
   them
-- It investigates the precise relation between those features and the
-  satisfaction of neighborhood inhabitants.
+- It investigates the relation between those features and the
+  satisfaction of neighborhood residents.
+
+Examples
+--------
+
+Visualizing features of neighborhoods using chloropleths.
+
+![Chloropleth](./screencast-chloropleth.gif)
+
+Eploring the relationship between the features and the general level of
+satisfaction of inhabitants.
+
+![Screencast](./screencast-factors.gif)
 
 Data and Methodology
 --------------------
@@ -45,18 +57,6 @@ The neighborhood features include:
 - access to <b>restauration</b> services, i.e. number of close restaurants and their respective ratings.
 - <b>transportation costs</b>, <b>affordability</b>, <b>poverty</b>, <b>ethnicity</b> indices taken directly from census data.
 
-Examples
---------
-
-Visualizing features of neighborhoods using chloropleths.
-
-![Chloropleth](./screencast-chloropleth.gif)
-
-Eploring the relationship between the feature and the general level of
-satisfaction of inhabitants.
-
-![Screencast](./screencast-factors.gif)
-
 Tools
 -----
 
@@ -65,21 +65,39 @@ The deliverable is an interactive document provided in the form of a Jupyter
 notebook with advanced interactive visualizations based on leafletjs, bqplot,
 d3.js.
 
+Directions for improvement
+--------------------------
+- Incorporating historical feature and response data will allow building a neighborhood specific model that may better predict the impact of changing a feature of that neighborhood on its well-being.
+- Building a GUI using `bqplot` to allow the features to be adjusted visually and which displays the predicted change in well-being for the neighborhood.
+- Incorporating Yelp reviews to gauge neighborhood well-being.
+
 Requirements
 ------------
 
 To be able to run the project the following software is required:
 
  - Python Scientific Stack
-   - `numpy`
-   - `pandas >= 0.17.1`
-   - `matplotlib >= 1.5.1`
+   - [numpy](https://github.com/numpy/numpy)
+   - [pandas](https://github.com/pydata/pandas) `>= 0.17.1`
+   - [matplotlib](https://github.com/matplotlib/matplotlib) `>= 1.5.1`
 
  - Jupyter notebook and Interactive Widget Libraries
-   - `Jupyter Notebook >= 4.2`
-   - `ipywidgets >= 5.0.0`
-   - `ipyleaflet >= 0.2.0b5`
-   - `bqplot >= 0.6.1`
+   - [Jupyter Notebook](https://github.com/jupyter/notebook) `>= 4.2`
+   - [ipywidgets](https://github.com/ipython/ipywidgets) `>= 5.0.0`
+   - [ipyleaflet](https://github.com/ellisonbg/ipyleaflet) `>= 0.2.0b5`
+   - [bqplot](https://github.com/bloomberg/bqplot) `>= 0.6.1`
 
  - GIS library
-   - `geopy`
+   - [geopy](https://github.com/geopy/geopy) `>=1.10`
+
+Geographical Data
+-----------------
+
+- `sf_zipcodes.geojson`:
+
+    A GeoJSON file that contains San Francisco zip code level topographical data. Each feature contains an attitude `id` which is the zip code associated with the `Polygon`.
+
+Getting Started
+---------------
+
+The main notebook of the study is [Main.ipynb](/notebooks/Main.ipynb).
